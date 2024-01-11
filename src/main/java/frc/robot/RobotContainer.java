@@ -1,5 +1,7 @@
 package frc.robot;
 
+import com.ctre.phoenix6.SignalLogger;
+
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -70,6 +72,9 @@ public class RobotContainer {
 	}
 
 	public void stopSubsystems() {
+		// Explicitly stop logging
+// If the user does not call stop(), then it's possible to lose the last few seconds of data
+SignalLogger.stop();
 		manager.stopSubsystems();
 	}
     

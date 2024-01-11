@@ -1,5 +1,7 @@
 package frc.robot;
 
+import com.ctre.phoenix6.SignalLogger;
+
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.TimedRobot;
 
@@ -11,7 +13,14 @@ public class Robot extends TimedRobot {
     public void robotInit(){
         robotContainer = new RobotContainer(); // MUST CALL FIRST. INITIALIZES CONTROLLERS
         robotContainer.startSubsystemThreads();
+
+        SignalLogger.setPath("/media/sda1/");
+
+// Explicitly start the logger
+SignalLogger.start();
     }
+
+
 
     @Override
     public void autonomousInit(){

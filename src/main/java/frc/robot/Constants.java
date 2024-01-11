@@ -27,14 +27,14 @@ public final class Constants {
 
         public static final double wheelRadius = 2; // in Inches
 
-        public static final Slot0Configs steerGains = new Slot0Configs();
-        public static final Slot0Configs driveGains = new Slot0Configs();
-    
-        {
-            steerGains.kP = 30;
-            steerGains.kD = 0.2;
-            driveGains.kP = 2;
-        }
+        public static final Slot0Configs steerGains = new Slot0Configs()
+        .withKP(100).withKI(0).withKD(0)
+        .withKS(0).withKV(0).withKA(0); // P: 100 Occi
+    // When using closed-loop control, the drive motor uses the control
+    // output type specified by SwerveModuleConstants.DriveMotorClosedLoopOutput
+    public static final Slot0Configs driveGains = new Slot0Configs()
+        .withKP(3).withKI(0).withKD(0)
+        .withKS(0).withKV(0).withKA(0);
 
         /* Front Left Module - Module 0 */
         public static final class Mod0 { 
